@@ -58,7 +58,8 @@ wc.exe -w file.txt           统计单词数
 ## 历程运行及其相关结果
 
 ![示例](C:\Users\ASUS\Desktop\新建文件夹\示例.jpg)
-要是看不到图片请看文件示例
+
+
 
 
 
