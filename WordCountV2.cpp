@@ -9,14 +9,14 @@ class WordCount
 {
 private:
 	vector <string> content;
-	int charNum;      //×Ö·ûÊı 
-	int wordsNum;     //µ¥´ÊÊı
-	int sentencesNum; //¾ä×ÓÊı
-	int lineNum;      //ÁĞ±íÊı 
+	int charNum;      //å­—ç¬¦æ•° 
+	int wordsNum;     //å•è¯æ•°
+	int sentencesNum; //å¥å­æ•°
+	int lineNum;      //åˆ—è¡¨æ•° 
 public:
-	WordCount(string);     //½øĞĞ³õÊ¼´¦Àí 
-	void Count();          //½øĞĞ¼ÆÊı 
-	void Print(string);    //Êä³ö½á¹û 
+	WordCount(string);     //è¿›è¡Œåˆå§‹å¤„ç† 
+	void Count();          //è¿›è¡Œè®¡æ•° 
+	void Print(string);    //è¾“å‡ºç»“æœ 
 };
 
 WordCount::WordCount(string fname)
@@ -26,12 +26,12 @@ WordCount::WordCount(string fname)
 	{
 		cout << "Open file error" << endl;
 	}
-	charNum = openFile.tellg();       //Ê¹ÓÃifstreamµÄÀà×Ô´øµÄº¯Êı½øĞĞ×Ö·û´®¼ÆÊı
-	openFile.seekg(0);                //°Ñ¶ÁÖ¸Õë¶¨ÓÚÎÄ¼ş¿ªÍ·
+	charNum = openFile.tellg();       //ä½¿ç”¨ifstreamçš„ç±»è‡ªå¸¦çš„å‡½æ•°è¿›è¡Œå­—ç¬¦ä¸²è®¡æ•°
+	openFile.seekg(0);                //æŠŠè¯»æŒ‡é’ˆå®šäºæ–‡ä»¶å¼€å¤´
 	string line;
 	while (getline(openFile, line))
 	{
-		content.push_back(line);    //ÒÔÃ¿Ò»ÁĞµÄĞÎÊ½·ÅÈëvectorÀàĞÍµÄcontentÖĞ
+		content.push_back(line);    //ä»¥æ¯ä¸€åˆ—çš„å½¢å¼æ”¾å…¥vectorç±»å‹çš„contentä¸­
 		lineNum++;
 	}
 	wordsNum = 0;
@@ -42,7 +42,7 @@ WordCount::WordCount(string fname)
 void WordCount::Count()
 {
 	string line;
-	for (int i = 0; i < lineNum; i++)   //Ã¿´Î´¦ÀíÒ»ÁĞ
+	for (int i = 0; i < lineNum; i++)   //æ¯æ¬¡å¤„ç†ä¸€åˆ—
 	{
 		line = content[i];
 		int nowPos;                  
@@ -57,7 +57,7 @@ void WordCount::Count()
 			{
 				sentencesNum++;
 			}
-			lastPos = nowPos;            //¼ÇÂ¼¸Ã´Î¶ÁÖ¸Õë
+			lastPos = nowPos;            
 		}
 	}
 }
@@ -99,7 +99,7 @@ bool CheckInput(string program, string cmd, string filename)
 
 int main()
 {
-	string command;  //ÊäÈëµÄÃüÁî 
+	string command;  //è¾“å…¥çš„å‘½ä»¤ 
 	while (getline(cin,command))
 	{
 		if (command == "quit")
@@ -110,7 +110,7 @@ int main()
 		string cmd;
 		string filename;
 		istringstream is(command);
-		is >> program >> cmd >> filename;   //¶ÔÃüÁî½øĞĞ»®·Ö 
+		is >> program >> cmd >> filename;   //å¯¹å‘½ä»¤è¿›è¡Œåˆ’åˆ† 
 		//cout<<program<<" "<<cmd<<" "<<filename<<endl; 
 		
 		if (CheckInput(program, cmd, filename))
